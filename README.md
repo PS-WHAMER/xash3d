@@ -1,9 +1,11 @@
-# Xash3D FWGS Engine [![Build Status](https://travis-ci.org/FWGS/xash3d.svg)](https://travis-ci.org/FWGS/xash3d) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/FWGS/xash3d?svg=true)](https://ci.appveyor.com/project/a1batross/xash3d)
+# Xash3D FWGS Engine - PS MOD [![Build Status](https://travis-ci.org/FWGS/xash3d.svg)](https://travis-ci.org/FWGS/xash3d) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/FWGS/xash3d?svg=true)](https://ci.appveyor.com/project/a1batross/xash3d)
 
 Latest version of the engine is available at:
 https://github.com/FWGS/xash3d
 
 Orignal project: [Xash3D on ModDB](http://www.moddb.com/engines/xash3d-engine)
+
+PS MOD - modification of the project Xash3D FWGS, which includes small but useful changes to the gameplay. (C)WHAMER
 
 Xash3D Engine is a custom Gold Source engine rewritten from scratch. Xash3D
 is compatible with many of the Gold Source games and mods and should be
@@ -23,5 +25,3 @@ with original Xash3D and Gold Source.
 The library is licensed under GPLv3 license, see [COPYING](https://github.com/FWGS/xash3d/blob/master/COPYING) for details.
 CMakeLists.txt files are licensed under MIT license, you will find it's text
 in every CMakeLists.txt header.
-
-PS MOD - modification of the project Xash3D FWGS, which includes small but useful changes to the gameplay. (C)WHAMER
