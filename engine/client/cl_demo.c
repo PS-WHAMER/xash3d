@@ -18,6 +18,7 @@ GNU General Public License for more details.
 #include "common.h"
 #include "client.h"
 #include "net_encode.h"
+#include <time.h>
 
 #define dem_unknown		0	// unknown command
 #define dem_norewind	1	// startup message
@@ -932,6 +933,16 @@ void CL_DemoGetName( int lastnum, char *filename )
 {
 	if( !filename )
 		return;
+	
+	time_t crt_time;
+    const struct tm *crt_tm;
+
+    time( &crt_time );
+    crt_tm = localtime( &crt_time );
+
+    char demoname[32];
+
+    strftime( demoname, sizeof( demoname ), "demo_%Y_%m_%d_%H_%M_%S", crt_tm );
 
 	if( lastnum < 0 || lastnum > 9999 )
 	{
@@ -941,7 +952,7 @@ void CL_DemoGetName( int lastnum, char *filename )
 	}
 
 
-	Q_sprintf( filename, "demo%04d", lastnum );
+	Q_sprintf( filename, "demo%04d", demoname, lastnum );
 }
 
 /*
