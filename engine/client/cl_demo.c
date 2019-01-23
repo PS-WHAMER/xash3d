@@ -35,6 +35,8 @@ GNU General Public License for more details.
 #define IDEMOHEADER		(('M'<<24)+('E'<<16)+('D'<<8)+'I') // little-endian "IDEM"
 #define DEMO_PROTOCOL	1
 
+convar_t *cl_showdemorecord;
+
 const char *demo_cmd[dem_lastcmd+1] =
 {
 	"dem_unknown",
@@ -452,6 +454,8 @@ CL_DrawDemoRecording
 */
 void CL_DrawDemoRecording( void )
 {
+	void CL_InitDemo( void );
+	
 	char		string[64];
 	rgba_t		color = { 255, 255, 255, 255 };
 	fs_offset_t	pos;
@@ -461,10 +465,14 @@ void CL_DrawDemoRecording( void )
 		return;
 
 	pos = FS_Tell( cls.demofile );
+	
+	if( cl_showdemorecord->value )
+	{
 	Q_snprintf( string, sizeof( string ), "RECORDING %s: %ik", cls.demoname, (int)(pos / 1024) );
 
 	Con_DrawStringLen( string, &len, NULL );
 	Con_DrawString(( scr_width->integer - len) >> 1, scr_height->integer >> 2, string, color );
+	}
 }
 
 /*
@@ -1257,4 +1265,10 @@ void CL_Stop_f( void )
 		S_StopBackgroundTrack();
 	}
 }
+
+void CL_InitDemo( void )
+{
+    cl_showdemorecord = Cvar_Get( "cl_showdemorecord", "1", FCVAR_ARCHIVE, "draw demo recording" );
+}
+
 #endif // XASH_DEDICATED
